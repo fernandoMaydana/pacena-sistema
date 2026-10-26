@@ -1,0 +1,190 @@
+import { Product, Client, TruckItem, Sale } from '../types';
+
+export const INITIAL_PRODUCTS: Product[] = [
+  {
+    id: 'prod-1',
+    code: 'PAC-710',
+    name: 'Paceña Pilsener 710cc (Retornable)',
+    category: 'cerveza',
+    presentation: 'Canastillo 12 botellas',
+    price: 130, // Ej: 130 Bs por canastillo
+    stockAlmacen: 450,
+    isReturnable: true,
+    returnableType: 'canastillo_12',
+  },
+  {
+    id: 'prod-2',
+    code: 'PAC-PICO',
+    name: 'Paceña Pico de Plata 710cc (Retornable)',
+    category: 'cerveza',
+    presentation: 'Canastillo 12 botellas',
+    price: 135,
+    stockAlmacen: 220,
+    isReturnable: true,
+    returnableType: 'canastillo_12',
+  },
+  {
+    id: 'prod-3',
+    code: 'PAC-LATA',
+    name: 'Paceña Pilsener Lata 354ml (Descartable)',
+    category: 'cerveza',
+    presentation: 'Fardo 24 latas',
+    price: 180,
+    stockAlmacen: 350,
+    isReturnable: false,
+  },
+  {
+    id: 'prod-4',
+    code: 'HUA-710',
+    name: 'Cerveza Huari Tradicional 710cc',
+    category: 'cerveza',
+    presentation: 'Canastillo 12 botellas',
+    price: 155,
+    stockAlmacen: 180,
+    isReturnable: true,
+    returnableType: 'canastillo_12',
+  },
+  {
+    id: 'prod-5',
+    code: 'TAQ-LATA',
+    name: 'Cerveza Taquiña Export Lata 354ml',
+    category: 'cerveza',
+    presentation: 'Fardo 24 latas',
+    price: 165,
+    stockAlmacen: 120,
+    isReturnable: false,
+  },
+  {
+    id: 'prod-6',
+    code: 'FER-750',
+    name: 'Fernet Branca 750ml',
+    category: 'licor',
+    presentation: 'Caja 6 botellas',
+    price: 420,
+    stockAlmacen: 60,
+    isReturnable: false,
+  },
+  {
+    id: 'prod-7',
+    code: 'SIN-CASA',
+    name: 'Singani Casa Real Etiqueta Negra 750ml',
+    category: 'licor',
+    presentation: 'Caja 6 botellas',
+    price: 380,
+    stockAlmacen: 45,
+    isReturnable: false,
+  },
+];
+
+export const INITIAL_CLIENTS: Client[] = [
+  {
+    id: 'cli-1',
+    name: 'Doña Rosa Flores',
+    businessName: 'Abarrotes & Tienda El Sol',
+    phone: '77891234',
+    address: 'Av. Las Américas #412 esq. Calle 3',
+    balanceMoney: 0,
+    balanceCrates: 2, // Debe 2 canastillos
+    balanceBottles: 0,
+  },
+  {
+    id: 'cli-2',
+    name: 'Don Carlos Mendoza',
+    businessName: 'Licorería & Bar La Esquina',
+    phone: '71234567',
+    address: 'Calle Bolívar #890',
+    balanceMoney: 390, // Debe 390 Bs de la última entrega
+    balanceCrates: 5, // Debe 5 canastillos
+    balanceBottles: 0,
+  },
+  {
+    id: 'cli-3',
+    name: 'Sra. Miriam Quispe',
+    businessName: 'Micromercado San Jorge',
+    phone: '68901234',
+    address: 'Zona Central, Plaza Principal #15',
+    balanceMoney: 0,
+    balanceCrates: 0,
+    balanceBottles: 0,
+  },
+  {
+    id: 'cli-4',
+    name: 'Marcelo Rios',
+    businessName: 'Restobar Karaoke El Faro',
+    phone: '76543210',
+    address: 'Av. Costanera #230',
+    balanceMoney: 780, // Debe 780 Bs
+    balanceCrates: 8,
+    balanceBottles: 4,
+  },
+];
+
+export const INITIAL_TRUCK_STOCK: TruckItem[] = [
+  {
+    productId: 'prod-1',
+    productName: 'Paceña Pilsener 710cc (Retornable)',
+    presentation: 'Canastillo 12 botellas',
+    quantity: 40,
+    price: 130,
+    isReturnable: true,
+  },
+  {
+    productId: 'prod-3',
+    productName: 'Paceña Pilsener Lata 354ml (Descartable)',
+    presentation: 'Fardo 24 latas',
+    quantity: 20,
+    price: 180,
+    isReturnable: false,
+  },
+  {
+    productId: 'prod-4',
+    productName: 'Cerveza Huari Tradicional 710cc',
+    presentation: 'Canastillo 12 botellas',
+    quantity: 15,
+    price: 155,
+    isReturnable: true,
+  },
+  {
+    productId: 'prod-6',
+    productName: 'Fernet Branca 750ml',
+    presentation: 'Caja 6 botellas',
+    quantity: 5,
+    price: 420,
+    isReturnable: false,
+  },
+];
+
+export const INITIAL_SALES: Sale[] = [
+  {
+    id: 'VTA-001',
+    date: new Date().toISOString(),
+    sellerName: 'Juan Pérez (Camión 1)',
+    clientId: 'cli-1',
+    clientName: 'Abarrotes & Tienda El Sol (Doña Rosa)',
+    items: [
+      {
+        productId: 'prod-1',
+        productName: 'Paceña Pilsener 710cc (Retornable)',
+        quantity: 3,
+        unitPrice: 130,
+        subtotal: 390,
+        isReturnable: true,
+      },
+      {
+        productId: 'prod-3',
+        productName: 'Paceña Pilsener Lata 354ml (Descartable)',
+        quantity: 2,
+        unitPrice: 180,
+        subtotal: 360,
+        isReturnable: false,
+      },
+    ],
+    totalAmount: 750,
+    paymentType: 'contado',
+    cratesDelivered: 3,
+    cratesReturned: 3,
+    bottlesDelivered: 0,
+    bottlesReturned: 0,
+    synced: true,
+  },
+];

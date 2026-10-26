@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Paceña Móvil Vendedor</string>
+    <string name="title_activity_main">Paceña Móvil Vendedor</string>
+    <string name="package_name">com.pacena.distribuidora</string>
+    <string name="custom_url_scheme">com.pacena.distribuidora</string>
+</resources>
